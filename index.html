@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="background"></div>
+
+  <div class="container">
+    <h1>Weather Dashboard</h1>
+
+    <div class="search-box">
+      <input type="text" id="cityInput" placeholder="Search City..." />
+      <button onclick="getWeather()">
+        <img src="https://cdn-icons-png.flaticon.com/512/751/751463.png" alt="Search Icon" />
+      </button>
+    </div>
+
+    <!-- Dashboard Two-Column Layout -->
+    <div class="dashboard-container">
+      
+      <!-- Left Side: Weather Info + Sun Info + Weather Details + 5 Day Forecast -->
+      <div class="weather-dashboard">
+
+        <div class="info-row">
+          <!-- Weather Info -->
+          <div class="weather-box">
+            <h2>Weather Info</h2>
+            <div class="weather-info">
+              <div class="weather-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/1684/1684375.png" alt="Temperature Icon" />
+                <span id="temperature">Temperature: --°C</span>
+              </div>
+              <div class="weather-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="Description Icon" />
+                <span id="description">Description: --</span>
+              </div>
+              <div class="weather-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/728/728093.png" alt="Humidity Icon" />
+                <span id="humidity">Humidity: --%</span>
+              </div>
+              <div class="weather-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/1116/1116453.png" alt="Wind Icon" />
+                <span id="wind">Wind Speed: -- km/h</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sunrise/Sunset Info -->
+          <div class="sun-box">
+            <h3>Sunrise & Sunset</h3>
+            <div class="sun-info">
+              <div class="sun-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="Sunrise Icon" />
+                <span id="sunrise">--:--</span>
+              </div>
+              <div class="sun-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="Sunset Icon" style="transform: rotate(180deg);" />
+                <span id="sunset">--:--</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Weather Details Box -->
+        <div class="weather-details-box">
+          <div class="detail-item">
+            <span>Visibility</span>
+            <span id="visibility">-- <i class="fas fa-eye-slash"></i></span>
+          </div>
+          <div class="detail-item">
+            <span>Dew Point</span>
+            <span id="dewpoint">--°C <i class="fas fa-tint"></i></span>
+          </div>
+          <div class="detail-item">
+            <span>Wind</span>
+            <span id="wind-speed">-- km/h <i class="fas fa-wind"></i></span>
+          </div>
+          <div class="detail-item">
+            <span>Humidity</span>
+            <span id="humidity-detail">--% <i class="fas fa-water"></i></span>
+          </div>
+          <div class="detail-item">
+            <span>Cloudiness</span>
+            <span id="cloudiness">--% <i class="fas fa-cloud"></i></span>
+          </div>
+        </div>
+
+        <!-- 5-Day Forecast Section -->
+        <div class="forecast-section">
+          <h2>5-Day Forecast</h2>
+          <div id="forecastBoxes" class="forecast-container">
+            <!-- Boxes will be inserted here dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side: Forecast in Other Cities -->
+      <div class="cities-box">
+        <h3>Forecast in Other <span>Cities</span></h3>
+        <div class="city-forecast">
+          <div class="city-row">
+            <div>
+              <strong>Manila</strong><br /><small>PH</small>
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/1163/1163624.png" alt="Clouds" />
+            <div>
+              <strong>91°F</strong><br /><small>Scattered Clouds</small>
+            </div>
+          </div>
+          <div class="city-row">
+            <div>
+              <strong>Paris</strong><br /><small>FR</small>
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="Clouds" />
+            <div>
+              <strong>56°F</strong><br /><small>Scattered Clouds</small>
+            </div>
+          </div>
+          <div class="city-row">
+            <div>
+              <strong>London</strong><br /><small>GB</small>
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="Clouds" />
+            <div>
+              <strong>52°F</strong><br /><small>Scattered Clouds</small>
+            </div>
+          </div>
+          <div class="city-row">
+            <div>
+              <strong>Sydney</strong><br /><small>AU</small>
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/1163/1163626.png" alt="Rain" />
+            <div>
+              <strong>64°F</strong><br /><small>Moderate Rain</small>
+            </div>
+          </div>
+          <div class="city-row">
+            <div>
+              <strong>Chile</strong><br /><small>CL</small>
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="Clear" />
+            <div>
+              <strong>48°F</strong><br /><small>Clear Sky</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- End of dashboard-container -->
+
+  </div> <!-- End of .container -->
+
+  <script src="script.js"></script>
+  <footer class="footer">
+    <p> &copy Made by Uthira</p>
+  </footer>
+
+</body>
+</html>
