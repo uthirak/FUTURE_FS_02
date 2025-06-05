@@ -1,4 +1,4 @@
-const API_KEY = "f36074eb853ff1d23f694b571f854ac2";
+const API_KEY = "YOUR_API_KEY";
 
 // Trigger weather fetch when Enter is pressed
 window.onload = function () {
